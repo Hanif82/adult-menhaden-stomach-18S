@@ -13,6 +13,8 @@ tail chimera_analysis/chimeras_all.txt #checking if samples were added
 #removing chimera sequences
 filter_fasta.py -f split_libraries/seqs.fna -o fasta_files/chi_seqs.fna -s chimera_analysis/chimeras_all.txt -n 
 
-#identifying PhiX sequences using BLAST
+#identifying and removing PhiX sequences using BLAST
 parallel_blast.py -i fasta_files/chi_seqs.fna -o phix_results/ -r /Volumes/Data/Menhaden/phiX.fasta 
-
+grep "^#" -v -c phix_results/chi_seqs_blast_out.txt #checks for number of phiX matches
+grep "^#" -v phix_results/chi_seqs_blast_out.txt > phix_results/phix_seqs.txt
+filter_fasta.py -f fasta_files/chi_seqs.fna -o fasta_files/chi_phi_seqs.fna -s phix_results/phix_seqs.txt -n 
