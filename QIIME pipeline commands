@@ -14,3 +14,5 @@ tail chimera_analysis/chimeras_all.txt #checking if samples were added
 filter_fasta.py -f split_libraries/seqs.fna -o fasta_files/chi_seqs.fna -s chimera_analysis/chimeras_all.txt -n 
 
 #identifying PhiX sequences using BLAST
+parallel_blast.py -i fasta_files/chi_seqs.fna -o phix_results/ -r /Volumes/Data/Menhaden/phiX.fasta 
+
