@@ -10,3 +10,7 @@ cat chimera_analysis/chimeras.txt chimera_analysis/A3_1_chimara/chimeras.txt > c
 cat chimera_analysis/A3_2_chimara/chimeras.txt >> chimera_analysis/chimeras_all.txt
 tail chimera_analysis/chimeras_all.txt #checking if samples were added
 
+#removing chimera sequences
+filter_fasta.py -f split_libraries/seqs.fna -o fasta_files/chi_seqs.fna -s chimera_analysis/chimeras_all.txt -n 
+
+#identifying PhiX sequences using BLAST
