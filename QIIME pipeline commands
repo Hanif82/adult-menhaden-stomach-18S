@@ -1,0 +1,12 @@
+
+
+
+
+
+
+
+#merging resulting chimeras.txt files from all chimeric analysis
+cat chimera_analysis/chimeras.txt chimera_analysis/A3_1_chimara/chimeras.txt > chimera_analysis/chimeras_all.txt
+cat chimera_analysis/A3_2_chimara/chimeras.txt >> chimera_analysis/chimeras_all.txt
+tail chimera_analysis/chimeras_all.txt #checking if samples were added
+
